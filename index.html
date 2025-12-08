@@ -250,22 +250,18 @@ href='data:image/svg+xml,
     </div>
   </footer>
 <!-- NUEVO FOOTER DISEÑADO -->
-<footer class="new-footer">
-  <div class="footer-container">
-    <h2>¡Únete a ArreglaoHome!</h2>
-    <p>Recibe noticias, descuentos y promociones directamente en tu correo.</p>
+<footer class="footer-new">
+  <div class="footer-inner">
+    <h2 class="footer-title">¡Únete a ArregloHome!</h2>
 
-    <form id="newsletter-form" class="footer-form">
-      <input 
-        type="email" 
-        id="email" 
-        placeholder="Escribe tu correo aquí" 
-        required
-      />
+    <form class="footer-form" action="#" method="POST">
+      <input type="email" placeholder="Escribe tu correo aquí" required>
       <button type="submit">Suscribirme</button>
     </form>
+  </div>
 
-    <p id="msg" class="footer-msg"></p>
+  <div class="footer-bottom">
+    © <span id="year"></span> ArregloHome – Castellón y sus alrededores
   </div>
 </footer>
 
@@ -300,6 +296,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
