@@ -1,0 +1,216 @@
+/* --- Variables y Reset --- */
+:root{
+    --green: #2ecc71;
+    --green-dark: #27ae60;
+    --gray: #5e5e5e;
+    --muted: #f4f4f4;
+    --white: #ffffff;
+    --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    --radius: 12px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--gray); -webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none}
+
+/* --- mini top bar --- */
+.topbar{
+    background:var(--muted);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:6px 20px;
+    font-size:14px;
+    color:var(--gray);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.topbar .left, .topbar .center, .topbar .right{display:flex;align-items:center;gap:12px}
+.topbar .center{justify-content:center;flex:1}
+
+/* --- header --- */
+.main-header{
+    background:var(--white);
+    box-shadow:var(--shadow);
+    position:sticky;top: 30px;z-index:900;
+}
+.header-container{
+    max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:20px;
+}
+
+/* logo area */
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{height:56px;width:auto;display:block}
+
+/* nav */
+nav{display:flex;gap:20px;align-items:center}
+nav a{font-weight:600;color:var(--gray);font-size:15px;padding:6px 8px;border-radius:8px}
+nav a:hover{background:rgba(46,204,113,0.08);color:var(--green-dark)}
+
+/* whatsapp button */
+.whatsapp-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(180deg,var(--green),var(--green-dark));
+    color:white;padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-weight:700;
+    box-shadow:0 6px 18px rgba(46,204,113,0.18);
+}
+.whatsapp-btn svg{width:20px;height:20px}
+
+/* --- HERO --- */
+.hero{
+    position:relative;overflow:hidden;
+    background-image:url('https://i.ibb.co/KpqZ97dj/95584f14-78e4-477a-8bbd-580e3a025dec.jpg');
+    background-size:cover;
+    background-position:center;
+    min-height:62vh;
+    display:flex;
+    align-items:center;
+    padding:36px 20px;
+}
+.hero-content{
+    max-width:450px;
+}
+
+.hero h1{
+    margin:0 0 20px;
+    font-size:32px;
+    color:#0f3f2e;
+    font-weight:700;
+}
+
+.card{
+    background:white;
+    padding:14px 18px;
+    border-radius:12px;
+    margin-bottom:16px;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.check{
+    width:34px;
+    height:34px;
+    min-width: 34px;
+    min-height: 34px;
+    border-radius:50%;
+    background:#28a868;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* --- main content sections --- */
+.container{max-width:1200px;margin:36px auto;padding:0 20px}
+
+/* FIX: evitar que el header tape las secciones al hacer clic */
+#quienes,
+#servicios,
+#destacados {
+    scroll-margin-top: 130px;
+}
+
+/* services grid */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px}
+.service{
+    background:var(--white);border-radius:12px;padding:18px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;
+}
+.service .icon{width:62px;height:62px;border-radius:10px;background:linear-gradient(180deg,var(--green),var(--green-dark));display:flex;align-items:center;justify-content:center;color:white;font-size:22px}
+.service h3{margin:0;font-size:16px}
+.service p{margin:6px 0 0;color:#777;font-size:14px}
+
+/* promotions */
+.promo{
+    display:flex;gap:18px;align-items:center;background:linear-gradient(90deg, rgba(46,204,113,0.08), rgba(46,204,113,0.03));
+    border-radius:12px;padding:18px;margin-bottom:28px;
+}
+.promo .info h3{margin:0;color:var(--green-dark)}
+.promo .cta button{background:var(--green);color:white;border:0;padding:10px 14px;border-radius:10px;cursor:pointer}
+
+/* testimonials */
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.testi{background:var(--white);padding:16px;border-radius:12px;box-shadow:var(--shadow)}
+.stars{color:gold;margin-bottom:8px}
+
+/* destacados gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+.card-img {
+    height: 240px;
+    border-radius: 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: var(--shadow);
+}
+  
+/* footer */
+footer{background:var(--muted);padding:28px 20px;color:var(--gray)}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;gap:18px;justify-content:space-between;align-items:flex-start}
+.footer-col{min-width:140px}
+.footer-bottom{text-align:center;padding-top:16px;color:#888;font-size:14px}
+
+
+/* --- Responsive --- */
+@media (max-width:1000px){
+    .hero-inner{grid-template-columns:1fr}
+    .services-grid{grid-template-columns:repeat(2,1fr)}
+    .testimonials{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    
+}
+@media (max-width:640px){
+    /* Ajuste para móvil: el logo es muy alto, lo reducimos */
+    .logo svg{height: 40px;} 
+    .header-container{padding:12px; align-items: center;}
+    
+    .topbar{font-size:13px;padding:6px 12px}
+    nav{display:none}
+    .hero h1{font-size:28px}
+    .services-grid{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
+    .hero-inner{padding:12px;grid-template-columns:1fr}
+    .footer-inner{flex-direction:column;gap:14px}
+}
+@media (max-width: 640px) {
+  .topbar .left {
+    display: flex;
+    align-items: flex-start; /* icono arriba, texto al lado */
+    gap: 6px;
+    white-space: normal;
+    line-height: 1.2;
+    max-width: 150px;
+  }
+
+  /* icono controlable */
+  .topbar .left .pin {
+    display: inline-block;
+    line-height: 1;
+    margin-top: 2px;    /* alineación vertical fina */
+    font-size: 18px;    /* ajustar si quieres icono más/menos grande */
+    flex-shrink: 0;
+  }
+
+  /* texto en columna para controlar salto y sangría */
+  .topbar .left .loc {
+    display: inline-block;
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  /* opcional: si quieres que 'alrededores' empiece con una pequeña sangría */
+  .topbar .left .loc br + * { /* no necesario, normalmente el <br> basta */
+    /* ejemplo si usáramos span en lugar de br */
+  }
+}
