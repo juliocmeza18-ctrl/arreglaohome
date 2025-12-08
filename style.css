@@ -213,4 +213,66 @@ footer{background:var(--muted);padding:28px 20px;color:var(--gray)}
   .topbar .left .loc br + * { /* no necesario, normalmente el <br> basta */
     /* ejemplo si usáramos span en lugar de br */
   }
+
+}
+/* ---- NUEVO FOOTER ARREGLAOHOME ---- */
+.new-footer {
+  background: #dff5e8; /* verde suave */
+  padding: 50px 20px;
+  text-align: center;
+  border-top: 3px solid #32a57e;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.new-footer h2 {
+  color: #0a6cff;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.new-footer p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#newsletter-form input {
+  padding: 12px 14px;
+  border: 2px solid #32a57e;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 260px;
+}
+
+#newsletter-form button {
+  background: #32a57e;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#newsletter-form button:hover {
+  background: #278b68;
+}
+
+.footer-msg {
+  margin-top: 15px;
+  color: #0a6cff;
+  font-size: 15px;
+  font-weight: bold;
 }
