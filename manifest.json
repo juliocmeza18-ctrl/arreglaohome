@@ -6,16 +6,12 @@
   "background_color": "#ffffff",
   "theme_color": "#0a6cff",
   "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  {
+    "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><rect width='512' height='512' fill='white'/><path d='M120 260 L256 160 L392 260' stroke='%232ecc71' stroke-width='28' fill='none' stroke-linecap='round'/><text x='50%25' y='330' font-size='70' font-family='Arial' fill='%232ecc71' text-anchor='middle'>Arreglao</text><text x='50%25' y='400' font-size='70' font-family='Arial' fill='%235e5e5e' text-anchor='middle'>Home</text></svg>",
+    "sizes": "512x512",
+    "type": "image/svg+xml"
+  }
+]
 
 }
+
