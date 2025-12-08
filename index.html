@@ -2,15 +2,22 @@
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <title>ArreglaoHome</title>
 <link rel="stylesheet" href="css/style.css" />
 <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#0a6cff">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<meta name="theme-color" content="#0a6cff
 
+<!-- Iconos PWA -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
+
 
   <div class="topbar" role="region" aria-label="barra superior">
     <div class="left">
@@ -218,10 +225,20 @@
 <!-- Service Worker para convertir tu web en APP -->
 <script>
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then(() => console.log("SW registrado"))
+      .catch(err => console.error("Error registrando SW:", err));
+  });
 }
 </script>
+
+    
+
+
 
 </body>
 
 </html>
+
