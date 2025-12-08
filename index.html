@@ -249,7 +249,36 @@ href='data:image/svg+xml,
       © <span id="year"></span> ArreglaoHome — Castellón y sus alrededores
     </div>
   </footer>
+<!-- NUEVO FOOTER DISEÑADO -->
+<footer class="new-footer">
+  <div class="footer-container">
+    <h2>¡Únete a ArreglaoHome!</h2>
+    <p>Recibe noticias, descuentos y promociones directamente en tu correo.</p>
 
+    <form id="newsletter-form" class="footer-form">
+      <input 
+        type="email" 
+        id="email" 
+        placeholder="Escribe tu correo aquí" 
+        required
+      />
+      <button type="submit">Suscribirme</button>
+    </form>
+
+    <p id="msg" class="footer-msg"></p>
+  </div>
+</footer>
+
+<!-- Script solo para mostrar mensaje de éxito -->
+<script>
+  document.getElementById("newsletter-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    document.getElementById("msg").innerText =
+      "¡Gracias por suscribirte!";
+    this.reset();
+  });
+</script>
+``
 <script src="js/script.js"></script>
 
 <!-- Service Worker para convertir tu web en APP -->
@@ -271,6 +300,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
