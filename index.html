@@ -298,73 +298,88 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-  <style>
-/* --- ALINEAR MINIHEADER Y AJUSTAR TODO SIN MODIFICAR HTML ORIGINAL --- */
+  <!-- Ajustes visuales del mini-header: pegar AL FINAL de index.html, antes de </body> -->
+<style>
+/* contenedor topbar: usa flex para alinear en una sola linea */
+.topbar,
+.topbar * { box-sizing: border-box; }
 
-/* 1. Mantener Castellón y sus alrededores como siempre */
-.topbar .left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.topbar .loc {
-    line-height: 1.2;
-}
-
-/* 2. Correo y Asistencia 24h con MISMO estilo que Castellón */
-.topbar .center,
-.topbar .right {
-    font-family: inherit !important;
-    font-size: inherit !important;
-    color: inherit !important;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* 3. Ícono amarillo SIN LETRA (SVG incrustado) */
-.topbar .mail-icon {
-    width: 18px;
-    height: 18px;
-    display: inline-block;
-    vertical-align: middle;
-    background-color: transparent;
-    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2 0l8 5 8-5H4zm16 12V8l-8 5-8-5v10h16z"/></svg>') no-repeat center;
-    background-color: #ffea00; /* AMARILLO FUERTE */
-}
-
-/* 4. Asistencia 24h EN EL MISMO LUGAR QUE LAS REDES → a la derecha */
-.topbar .right {
-    margin-left: auto !important;
-    white-space: nowrap;
-}
-
-/* 5. Asegurar que todo esté en una sola línea */
 .topbar {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 6px 12px !important;
+  display: flex;
+  align-items: center;              /* alinea verticalmente todos los elementos */
+  justify-content: space-between;   /* izquierda - centro - derecha */
+  gap: 12px;
+  padding: 6px 14px;
+  background: transparent;          /* no toca fondo, deja el existente */
+  font-family: inherit;             /* hereda la misma tipografía que 'Castellón' */
+  line-height: 1;
 }
 
-/* 6. Ocultar redes sin tocar HTML original */
-.topbar .right a[href*="instagram"],
-.topbar .right a[href*="facebook"],
-.topbar .right img[src*="instagram"],
-.topbar .right img[src*="facebook"] {
-    display: none !important;
+/* columna izquierda: fija ancho para controlar el wrap y mantener 'alrededores' debajo */
+.topbar .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 210px;                 /* AJUSTA este valor si quieres mover la alineación */
+  max-width: 240px;
+  flex: 0 0 auto;
+}
+
+/* texto Castellón (2 líneas si hace falta) */
+.topbar .topbar-left .location {
+  display:block;
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+/* centro: email centrado en el espacio disponible */
+.topbar .topbar-center {
+  display: flex;
+  align-items: center;              /* centra verticalmente respecto a la derecha */
+  justify-content: center;
+  flex: 1 1 auto;                   /* ocupa el espacio intermedio */
+}
+
+/* email: SIN icono, misma tipografía que Castellón */
+.topbar .email {
+  font-size: 20px;                  /* ajusta tamaño para que quede igual que Castellón */
+  color: #222;
+  margin: 0;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* derecha: Asistencia 24h en una sola línea */
+.topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 180px;                 /* evita que el texto se baje de linea */
+  gap: 8px;
+}
+.topbar .assist {
+  font-size: 18px;
+  color:#333;
+  margin:0;
+  font-weight:500;
+}
+
+/* OCULTAR icono de correo si no lo borraste del HTML */
+.topbar img.icon-email,
+.topbar .email-icon {
+  display: none !important;
+}
+
+/* Ajustes de responsividad: comprueba y reduce tamaños en móviles */
+@media (max-width: 600px) {
+  .topbar { padding: 8px 10px; }
+  .topbar .topbar-left { min-width: 160px; max-width:200px; }
+  .topbar .email { font-size: 17px; }
+  .topbar .assist { font-size: 15px; }
 }
 </style>
-
-<script>
-// Añadir asistencias 24h solo si no existe
-document.addEventListener("DOMContentLoaded", () => {
-  const right = document.querySelector(".topbar .right");
-  if (right && !right.textContent.includes("Asistencia 24h")) {
-    right.textContent = "Asistencia 24h";
-  }
-});
-</script>
+  
   
   
 
@@ -375,6 +390,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </body>
 
 </html>
+
 
 
 
