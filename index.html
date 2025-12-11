@@ -298,58 +298,54 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-  <!-- FIX mini-header final -->
+  <!-- MINIHEADER FIX DEFINITIVO (NO ROMPE NADA) -->
 <style>
-  /* Ajusta alineación del texto de la ubicación */
-  .topbar .loc {
-    display: inline-block;
+  /* Alinear texto de la ubicación */
+  .topbar .left .loc {
+    display: block;
     line-height: 1.2;
   }
 
-  /* Quita el icono de correo */
-  .topbar .mail-icon {
+  /* Centrar el correo en su propio bloque */
+  .topbar .center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .topbar .center a {
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: #444 !important;
+    text-decoration: none !important;
+  }
+
+  /* Quitar icono de correo si existiera */
+  .topbar .center img {
     display: none !important;
   }
 
-  /* Estilo del correo igual al texto normal */
-  .topbar .email-text {
-    font-size: 18px;
-    font-weight: 400;
-    color: #444;
-    margin-left: 10px;
+  /* Quitar redes por completo */
+  .topbar .right a,
+  .topbar .right img {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
   }
 
-  /* Ubica asistencia a la derecha correctamente */
-  .topbar .right-info {
-    margin-left: auto;
+  /* Reemplazar redes con Asistencia 24h */
+  .topbar .right::after {
+    content: "Asistencia 24h";
     font-size: 18px;
     font-weight: 400;
     color: #444;
     white-space: nowrap;
   }
 </style>
-
-<script>
-  // Ajustar dinámicamente el mini-header sin tocar el HTML original
-  document.addEventListener("DOMContentLoaded", () => {
-
-    // 1️⃣ Ocultar icono de correo si existe
-    const mailIcon = document.querySelector(".topbar img");
-    if (mailIcon) mailIcon.classList.add("mail-icon");
-
-    // 2️⃣ Convertir el correo en texto normal
-    const mail = document.querySelector('.topbar a[href^="mailto"]');
-    if (mail) {
-      mail.outerHTML = <span class="email-text">${mail.textContent}</span>;
-    }
-
-    // 3️⃣ Reemplazar redes por "Asistencia 24h"
-    const right = document.querySelector(".topbar .right");
-    if (right) {
-      right.innerHTML = <span class="right-info">Asistencia 24h</span>;
-    }
-  });
-</script>
+  
   
   
   
@@ -361,6 +357,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
