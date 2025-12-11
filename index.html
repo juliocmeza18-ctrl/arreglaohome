@@ -298,54 +298,74 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-  <!-- MINIHEADER FIX DEFINITIVO (NO ROMPE NADA) -->
-<style>
-  /* Alinear texto de la ubicación */
-  .topbar .left .loc {
-    display: block;
+  <style>
+/* --- ALINEAR MINIHEADER Y AJUSTAR TODO SIN MODIFICAR HTML ORIGINAL --- */
+
+/* 1. Mantener Castellón y sus alrededores como siempre */
+.topbar .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.topbar .loc {
     line-height: 1.2;
-  }
+}
 
-  /* Centrar el correo en su propio bloque */
-  .topbar .center {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
+/* 2. Correo y Asistencia 24h con MISMO estilo que Castellón */
+.topbar .center,
+.topbar .right {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    color: inherit !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
 
-  .topbar .center a {
-    font-size: 18px !important;
-    font-weight: 400 !important;
-    color: #444 !important;
-    text-decoration: none !important;
-  }
+/* 3. Ícono amarillo SIN LETRA (SVG incrustado) */
+.topbar .mail-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: transparent;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2 0l8 5 8-5H4zm16 12V8l-8 5-8-5v10h16z"/></svg>') no-repeat center;
+    background-color: #ffea00; /* AMARILLO FUERTE */
+}
 
-  /* Quitar icono de correo si existiera */
-  .topbar .center img {
-    display: none !important;
-  }
-
-  /* Quitar redes por completo */
-  .topbar .right a,
-  .topbar .right img {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-  }
-
-  /* Reemplazar redes con Asistencia 24h */
-  .topbar .right::after {
-    content: "Asistencia 24h";
-    font-size: 18px;
-    font-weight: 400;
-    color: #444;
+/* 4. Asistencia 24h EN EL MISMO LUGAR QUE LAS REDES → a la derecha */
+.topbar .right {
+    margin-left: auto !important;
     white-space: nowrap;
-  }
+}
+
+/* 5. Asegurar que todo esté en una sola línea */
+.topbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 6px 12px !important;
+}
+
+/* 6. Ocultar redes sin tocar HTML original */
+.topbar .right a[href*="instagram"],
+.topbar .right a[href*="facebook"],
+.topbar .right img[src*="instagram"],
+.topbar .right img[src*="facebook"] {
+    display: none !important;
+}
 </style>
-  
+
+<script>
+// Añadir asistencias 24h solo si no existe
+document.addEventListener("DOMContentLoaded", () => {
+  const right = document.querySelector(".topbar .right");
+  if (right && !right.textContent.includes("Asistencia 24h")) {
+    right.textContent = "Asistencia 24h";
+  }
+});
+</script>
+    
   
   
   
@@ -357,6 +377,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
