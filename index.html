@@ -293,26 +293,26 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-  <!-- Ajuste móvil: desplaza ligeramente el correo a la izquierda sin romper el miniheader -->
-<style>
-/* Solo para pantallas pequeñas (app) */
-@media (max-width: 768px) {
-  /* Selecciona el enlace dentro del contenedor del correo */
-  .topbar-center a {
-    display: inline-block;          /* evitar que sea 100% ancho */
-    transform: translateX(-10px);   /* mueve 10px a la izquierda (ajusta más/menos abajo) */
-    transition: transform .12s ease;/* suave si pruebas cambios en tiempo real */
-  }
+  <style>
 
-  /* Si por alguna razón la regla anterior no sobrescribe,
-     usa esta variante con mayor especificidad */
-  .topbar .topbar-center a,
-  header .topbar-center a {
-    /* mantener el mismo ajuste */
-    transform: translateX(-10px) !important;
+/* Estilo para mantener el correo con la misma tipografía y color de "Castellón" */
+.topbar .topbar-center a[href^="mailto"] {
+    font-size: inherit !important;
+    color: inherit !important;
+    font-family: inherit !important;
+    text-decoration: none !important;
+}
+
+/* Ajuste SOLO en móviles para mover el correo hacia la izquierda */
+@media (max-width: 768px) {
+  .topbar .topbar-center a[href^="mailto"] {
+      transform: translateX(-22px) !important;
+      display: inline-block !important;
   }
 }
+
 </style>
+  
     
   
   
@@ -321,6 +321,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
