@@ -298,33 +298,7 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-  <style>
-
-<script>
-// Añadir asistencias 24h solo si no existe
-document.addEventListener("DOMContentLoaded", () => {
-  const right = document.querySelector(".topbar .right");
-  if (right && !right.textContent.includes("Asistencia 24h")) {
-    right.textContent = "Asistencia 24h";
-  }
-});
-</script>
-    <style>
-/* Ocultar iconos de redes sin modificar el HTML original */
-.topbar .right a[href*="instagram"],
-.topbar .right a[href*="facebook"],
-.topbar .right img[src*="instagram"],
-.topbar .right img[src*="facebook"] {
-    display: none !important;
-}
-
-/* Asegurar alineación horizontal del contenido derecho */
-.topbar .right {
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-}
-</style>
+  
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -365,6 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </body>
 
 </html>
+
 
 
 
