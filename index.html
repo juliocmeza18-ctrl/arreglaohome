@@ -298,87 +298,58 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-  <!-- Ajustes visuales del mini-header: pegar AL FINAL de index.html, antes de </body> -->
+  <!-- FIX mini-header final -->
 <style>
-/* contenedor topbar: usa flex para alinear en una sola linea */
-.topbar,
-.topbar * { box-sizing: border-box; }
+  /* Ajusta alineación del texto de la ubicación */
+  .topbar .loc {
+    display: inline-block;
+    line-height: 1.2;
+  }
 
-.topbar {
-  display: flex;
-  align-items: center;              /* alinea verticalmente todos los elementos */
-  justify-content: space-between;   /* izquierda - centro - derecha */
-  gap: 12px;
-  padding: 6px 14px;
-  background: transparent;          /* no toca fondo, deja el existente */
-  font-family: inherit;             /* hereda la misma tipografía que 'Castellón' */
-  line-height: 1;
-}
+  /* Quita el icono de correo */
+  .topbar .mail-icon {
+    display: none !important;
+  }
 
-/* columna izquierda: fija ancho para controlar el wrap y mantener 'alrededores' debajo */
-.topbar .topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 210px;                 /* AJUSTA este valor si quieres mover la alineación */
-  max-width: 240px;
-  flex: 0 0 auto;
-}
+  /* Estilo del correo igual al texto normal */
+  .topbar .email-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: #444;
+    margin-left: 10px;
+  }
 
-/* texto Castellón (2 líneas si hace falta) */
-.topbar .topbar-left .location {
-  display:block;
-  font-size: 18px;
-  color: #333;
-  margin: 0;
-}
-
-/* centro: email centrado en el espacio disponible */
-.topbar .topbar-center {
-  display: flex;
-  align-items: center;              /* centra verticalmente respecto a la derecha */
-  justify-content: center;
-  flex: 1 1 auto;                   /* ocupa el espacio intermedio */
-}
-
-/* email: SIN icono, misma tipografía que Castellón */
-.topbar .email {
-  font-size: 20px;                  /* ajusta tamaño para que quede igual que Castellón */
-  color: #222;
-  margin: 0;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* derecha: Asistencia 24h en una sola línea */
-.topbar .topbar-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: 180px;                 /* evita que el texto se baje de linea */
-  gap: 8px;
-}
-.topbar .assist {
-  font-size: 18px;
-  color:#333;
-  margin:0;
-  font-weight:500;
-}
-
-/* OCULTAR icono de correo si no lo borraste del HTML */
-.topbar img.icon-email,
-.topbar .email-icon {
-  display: none !important;
-}
-
-/* Ajustes de responsividad: comprueba y reduce tamaños en móviles */
-@media (max-width: 600px) {
-  .topbar { padding: 8px 10px; }
-  .topbar .topbar-left { min-width: 160px; max-width:200px; }
-  .topbar .email { font-size: 17px; }
-  .topbar .assist { font-size: 15px; }
-}
+  /* Ubica asistencia a la derecha correctamente */
+  .topbar .right-info {
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: 400;
+    color: #444;
+    white-space: nowrap;
+  }
 </style>
+
+<script>
+  // Ajustar dinámicamente el mini-header sin tocar el HTML original
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // 1️⃣ Ocultar icono de correo si existe
+    const mailIcon = document.querySelector(".topbar img");
+    if (mailIcon) mailIcon.classList.add("mail-icon");
+
+    // 2️⃣ Convertir el correo en texto normal
+    const mail = document.querySelector('.topbar a[href^="mailto"]');
+    if (mail) {
+      mail.outerHTML = <span class="email-text">${mail.textContent}</span>;
+    }
+
+    // 3️⃣ Reemplazar redes por "Asistencia 24h"
+    const right = document.querySelector(".topbar .right");
+    if (right) {
+      right.innerHTML = <span class="right-info">Asistencia 24h</span>;
+    }
+  });
+</script>
   
   
   
@@ -390,6 +361,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
