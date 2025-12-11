@@ -298,84 +298,14 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-  <!-- Centrar correo sin icono y con la misma tipografía que Castellón -->
-<style>
-  /* Centro del miniheader */
-  .topbar .center {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  /* Correo sin icono y con misma tipografía que Castellón */
-  .topbar .center a {
-    font-size: 18px !important;      /* Igualar tamaño */
-    font-weight: 400 !important;     /* Igualar estilo */
-    color: #444 !important;          /* Igualar color */
-    text-decoration: none !important;
-    font-family: inherit !important; /* MISMA fuente que Castellón */
-  }
-
-  /* Si existiera un icono dentro del correo, se oculta */
-  .topbar .center img {
-    display: none !important;
-  }
-</style>
-  <!-- Reemplazar redes por "Asistencia 24h" con la misma tipografía -->
-<style>
-  /* Ocultar redes sociales completamente */
-  .topbar .right a,
-  .topbar .right img {
-    display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* Insertar "Asistencia 24h" en el mismo lugar */
-  .topbar .right::after {
-    content: "Asistencia 24h";
-    font-size: 18px;             /* misma tipografía que Castellón */
-    font-weight: 400;
-    color: #444;                 /* mismo tono de texto */
-    font-family: inherit;        /* garantiza misma fuente */
-    white-space: nowrap;         /* mantiene una sola línea */
-  }
-
-  /* Ajuste para que en la app no se mueva ni se doble */
-  .topbar .right {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    min-width: 150px;            /* evita que baje de línea */
-  }
-
-  @media (max-width: 600px) {
-    .topbar .right::after {
-      font-size: 16px;           /* más equilibrado en móviles */
-    }
-    .topbar .right {
-      min-width: 120px;
-    }
-  }
-</style>
-  
-
-
-    
   
   
-  
-
-    
-
 
 
 </body>
 
 </html>
+
 
 
 
