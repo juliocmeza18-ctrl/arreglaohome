@@ -294,23 +294,12 @@ if ("serviceWorker" in navigator) {
 }
 </script>
   <style>
-
-/* Estilo para mantener el correo con la misma tipografía y color de "Castellón" */
-.topbar .topbar-center a[href^="mailto"] {
-    font-size: inherit !important;
-    color: inherit !important;
-    font-family: inherit !important;
-    text-decoration: none !important;
+/* Bloquea el ancho del texto de ubicación para que no cambie en la app */
+.topbar .left {
+    width: 55%;              /* Ajuste seguro para mantener el salto de línea */
+    min-width: 200px;        /* Evita que se aplaste en pantallas pequeñas */
+    line-height: 1.1;        /* Mantiene la estética del salto */
 }
-
-/* Ajuste SOLO en móviles para mover el correo hacia la izquierda */
-@media (max-width: 768px) {
-  .topbar .topbar-center a[href^="mailto"] {
-      transform: translateX(-22px) !important;
-      display: inline-block !important;
-  }
-}
-
 </style>
   
     
@@ -321,6 +310,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
