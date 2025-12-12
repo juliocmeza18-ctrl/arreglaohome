@@ -293,6 +293,58 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+  <style>
+
+/* 🔹 1. Ocultar redes en todos los dispositivos */
+.topbar .right {
+    display: none !important;
+}
+
+/* =========================================================
+   📱  APP (MÓVIL)
+   ========================================================= */
+@media (max-width: 767px) {
+
+    /* Mostrar solo el correo, con estilo igual a Castellón */
+    .topbar .center a[aria-label="correo"] {
+        font-size: inherit !important;     /* mismo tamaño */
+        font-family: inherit !important;   /* misma fuente */
+        color: inherit !important;         /* mismo color */
+        margin-left: -10px;                /* ajuste fino izquierda */
+        display: inline-block;
+    }
+
+}
+
+/* =========================================================
+   🖥  WEB (DESKTOP)
+   ========================================================= */
+@media (min-width: 768px) {
+
+    /* Correo centrado con misma estética que Castellón */
+    .topbar .center a[aria-label="correo"] {
+        font-size: inherit !important;
+        font-family: inherit !important;
+        color: inherit !important;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    /* Mostrar Asistencia 24h donde estaban las redes */
+    .topbar .right {
+        display: block !important;
+        white-space: nowrap;
+    }
+
+    .topbar .right::after {
+        content: "Asistencia 24h";
+        font-size: inherit !important;
+        font-family: inherit !important;
+        color: inherit !important;
+    }
+}
+
+</style>
 
     
     
@@ -301,6 +353,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
