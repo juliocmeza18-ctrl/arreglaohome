@@ -346,7 +346,11 @@ if ("serviceWorker" in navigator) {
 
 <style>
 /* OCULTAR REDES (Instagram + Facebook) */
-.right {
+<style>
+a[aria-label="Instagram"],
+a[aria-label="Facebook"],
+img[alt="Instagram"],
+img[alt="Facebook"] {
     display: none !important;
 }
 </style>
@@ -358,6 +362,7 @@ if ("serviceWorker" in navigator) {
 </body>
 
 </html>
+
 
 
 
