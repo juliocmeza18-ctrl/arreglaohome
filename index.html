@@ -345,12 +345,22 @@ if ("serviceWorker" in navigator) {
 }
 
 <style>
-/* OCULTAR REDES (Instagram + Facebook) */
-<style>
+/* Ocultar Instagram */
 a[aria-label="Instagram"],
+a[aria-label="Instagram"] img {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Ocultar Facebook */
 a[aria-label="Facebook"],
-img[alt="Instagram"],
-img[alt="Facebook"] {
+a[aria-label="Facebook"] img {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Ocultar completamente el bloque derecho si queda vacío */
+.topbar .right {
     display: none !important;
 }
 </style>
@@ -362,6 +372,7 @@ img[alt="Facebook"] {
 </body>
 
 </html>
+
 
 
 
