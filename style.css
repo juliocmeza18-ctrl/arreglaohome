@@ -31,20 +31,32 @@ a{color:inherit;text-decoration:none}
 .topbar .left, .topbar .center, .topbar .right{display:flex;align-items:center;gap:12px}
 .topbar .center{justify-content:center;flex:1}
 
-/* --- header --- */
-.main-header{
-    background:var(--white);
-    box-shadow:var(--shadow);
-    position:sticky;top: 30px;z-index:900;
-}
 .header-container{
-    max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:20px;
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0px 20px;
+    height: 60pxg;
+    position: relative;
 }
 
 /* logo area */
-.logo{display:flex;align-items:center;gap:12px}
-.logo svg{height:56px;width:auto;display:block}
-
+.logo{position: relative; 
+    display: flex;
+    align-items: center;
+    width: 72px;  /* Reserva este ancho para que el menú no choque con el muñeco */
+    height: 72px;
+}
+.logo img{height: 140px;      /* El tamaño grande que buscas */
+    width: auto;
+    position: absolute; /* CLAVE: Esto hace que el logo flote y NO estire el header */
+    top: -5px;
+    left: 0;
+    z-index: 10;        /* Lo pone por encima de todo para que no se vea cortado */
+    display: block;
+    }
 /* nav */
 nav{display:flex;gap:20px;align-items:center}
 nav a{font-weight:600;color:var(--gray);font-size:15px;padding:6px 8px;border-radius:8px}
@@ -270,3 +282,4 @@ footer{background:var(--muted);padding:28px 20px;color:var(--gray)}
   color: #888;
   font-size: 14px;
 }
+
