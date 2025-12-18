@@ -30,7 +30,7 @@ a{color:inherit;text-decoration:none}
 }
 .topbar .left, .topbar .center, .topbar .right{display:flex;align-items:center;gap:12px}
 .topbar .center{justify-content:center;flex:1}
-}
+
 .header-container{
     max-width:1200px;
     margin:0 auto;
@@ -282,5 +282,6 @@ footer{background:var(--muted);padding:28px 20px;color:var(--gray)}
   color: #888;
   font-size: 14px;
 }
+
 
 
