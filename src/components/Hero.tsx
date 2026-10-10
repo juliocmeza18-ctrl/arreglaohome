@@ -1,4 +1,5 @@
 import React from 'react';
+import technicianPhoto from '../assets/images/arreglaohome_tecnico_persiana_1791557657198.jpg';
 
 interface HeroProps {
   onOpenPunctualRequest: () => void;
@@ -145,7 +146,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <img
                   alt="Técnico profesional de ArreglaoHome con polo de la empresa ajustando una persiana en una vivienda luminosa en Castellón"
                   className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                  src="/src/assets/images/arreglaohome_tecnico_persiana_1791557657198.jpg"
+                  src={technicianPhoto}
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0e4f3a]/60 via-transparent to-transparent pointer-events-none"></div>
