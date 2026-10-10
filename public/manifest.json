@@ -1,0 +1,25 @@
+{
+  "name": "ArreglaoHome - Reparaciones y Servicios del Hogar",
+  "short_name": "ArreglaoHome",
+  "description": "Reparaciones rápidas y fáciles para el hogar en Castellón y provincia. Manitas, fontanería, electricidad y mantenimiento.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8faf9",
+  "theme_color": "#0e4f3a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["lifestyle", "utilities", "business"]
+}
