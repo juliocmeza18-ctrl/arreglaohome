@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Catálogo de servicios: Lectura pública y modificación por administradores
+    match /services/{serviceId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Plan anual ArreglaoHome: Lectura pública y modificación por administradores
+    match /plans/{planId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Perfiles de usuario (clientes y suscriptores del plan)
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Solicitudes de servicio y averías
+    match /requests/{requestId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+      allow delete: if true;
+    }
+
+    // Personas interesadas en recibir información (leads sin suscripción)
+    match /interested_leads/{leadId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+    }
+
+    // Documento de prueba de conexión
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+  }
+}
